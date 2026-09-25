@@ -1,0 +1,19 @@
+# Launcher icon. Adaptive layers come from tools/brand_assets.py — the white
+# mark + wordmark sit inside Android's safe zone so no launcher shape crops it.
+# Regenerate: python ../tools/brand_assets.py && dart run flutter_launcher_icons
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: false # no ios/ platform scaffold in this project yet
+  image_path: "assets/icon/app_icon_full.png"
+  min_sdk_android: 21 # android min sdk min:16, default:21
+  remove_alpha_ios: true
+  adaptive_icon_background: "assets/icon/adaptive_background.png"
+  adaptive_icon_foreground: "assets/icon/adaptive_foreground.png"
+  adaptive_icon_monochrome: "assets/icon/adaptive_monochrome.png"
+  # layers are already sized for the safe zone — no extra inset
+  adaptive_icon_foreground_inset: 0
+  web:
+    generate: true
+    image_path: "assets/icon/app_icon_full.png"
+    background_color: "#F7FBFF"
+    theme_color: "#2F6BFF"

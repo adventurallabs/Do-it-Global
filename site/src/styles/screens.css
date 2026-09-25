@@ -1,0 +1,58 @@
+/* ------------------------------------------------------------------ */
+/*  Recreated app surfaces.                                            */
+/*  .pc — PalliConnect (Outfit UI, Fraunces display)                   */
+/*  .pk — PalliCore (neumorphic clay, from core_ui AppColors/AdminLook) */
+/* ------------------------------------------------------------------ */
+.pc {
+  font-family: 'Outfit Variable', 'Noto Sans Tamil', system-ui, sans-serif;
+  color: #102037;
+  -webkit-font-smoothing: antialiased;
+  text-align: left;
+  letter-spacing: 0;
+}
+.pc-display {
+  font-family: 'Fraunces Variable', Georgia, serif;
+  font-optical-sizing: auto;
+}
+
+.pk {
+  font-family: 'Roboto Variable', system-ui, sans-serif;
+  color: #303137;
+  background: linear-gradient(135deg, #f2f0ec, #edebe7 50%, #e4e2dc);
+  -webkit-font-smoothing: antialiased;
+  text-align: left;
+  letter-spacing: 0;
+  container-type: inline-size;
+}
+/* Depth comes only from paired shadows: white top-left, clay bottom-right. */
+.soft1 {
+  background: linear-gradient(135deg, #f7f5f2, #edebe7 45%, #e2e0da);
+  box-shadow:
+    7px 7px 16px rgb(166 160 150 / 0.5),
+    -7px -7px 16px rgb(255 255 255 / 0.95);
+}
+.soft2 {
+  background: linear-gradient(135deg, #f7f5f2, #edebe7 45%, #e2e0da);
+  box-shadow:
+    4px 4px 10px rgb(166 160 150 / 0.5),
+    -4px -4px 10px rgb(255 255 255 / 0.95);
+}
+.soft3 {
+  background: linear-gradient(135deg, #faf8f5, #edebe7 42%, #dcd9d3);
+  box-shadow:
+    14px 14px 30px rgb(166 160 150 / 0.55),
+    -12px -12px 26px rgb(255 255 255 / 1);
+}
+.soft-in {
+  background: linear-gradient(135deg, #e2e0da, #edebe7 55%, #f5f3ef);
+  box-shadow:
+    inset 4px 4px 9px rgb(166 160 150 / 0.5),
+    inset -4px -4px 9px rgb(255 255 255 / 0.9);
+}
+.gold-btn {
+  background: linear-gradient(135deg, #e2c275, #c9a24a, #b38d3a);
+  color: #1a1814;
+  box-shadow:
+    4px 6px 14px rgb(107 88 64 / 0.35),
+    inset 0 1px 0 rgb(255 249 232 / 0.7);
+}

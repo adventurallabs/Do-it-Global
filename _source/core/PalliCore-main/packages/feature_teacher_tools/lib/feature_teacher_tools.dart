@@ -1,0 +1,23 @@
+library feature_teacher_tools;
+
+export 'src/teacher_tools_bloc.dart';
+export 'src/teacher_tools_screen.dart';
+export 'src/teacher_messages_screen.dart';
+export 'src/class_update_screen.dart';
+export 'src/homework_review_screen.dart';
+export 'src/homework/homework_board_screen.dart';
+export 'src/homework/assign_homework_screen.dart';
+export 'src/homework/homework_progress.dart';
+export 'src/progress/class_progress_screen.dart';
+export 'src/progress/student_progress_screen.dart';
+export 'src/progress/progress_recorder_screen.dart';
+export 'src/marks/marks_board_screen.dart';
+export 'src/marks/marks_sheet_screen.dart';
+export 'src/cover_requests_screen.dart';
+export 'src/exams/teacher_exam_data.dart';
+export 'src/exams/teacher_exams_screen.dart';
+export 'src/exams/teacher_results_screen.dart';
+export 'src/exams/exam_marks_entry_screen.dart';
+export 'src/exams/teacher_exam_shortcuts.dart';
+export 'src/events/teacher_events_screen.dart';
+export 'src/events/event_category_screen.dart';

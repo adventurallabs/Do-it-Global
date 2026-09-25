@@ -1,0 +1,446 @@
+{
+  "@@locale": "ta",
+  "appTitle": "பள்ளிகனெக்ட்",
+  "tabToday": "இன்று",
+  "tabDiary": "டைரி",
+  "tabMessages": "செய்திகள்",
+  "tabProgress": "முன்னேற்றம்",
+  "tabProfile": "சுயவிவரம்",
+  "goodMorning": "காலை வணக்கம்",
+  "goodAfternoon": "மதிய வணக்கம்",
+  "goodEvening": "மாலை வணக்கம்",
+  "switchStudent": "மாணவரை மாற்று",
+  "addStudent": "மாணவரைச் சேர்",
+  "classSection": "{className}-{section}",
+  "@classSection": {
+    "placeholders": {
+      "className": {
+        "type": "String"
+      },
+      "section": {
+        "type": "String"
+      }
+    }
+  },
+  "todaysOverview": "இன்றைய பள்ளி சுருக்கம்",
+  "schoolDayTitle": "{name}-இன் பள்ளி நாள்",
+  "@schoolDayTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "todayAtSchool": "இன்று பள்ளியில்",
+  "todaysLearning": "இன்றைய கற்றல்",
+  "whatStudentLearned": "{name} கற்றவை",
+  "@whatStudentLearned": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "homeworkStatus": "வீட்டுப்பாட நிலை",
+  "todaysHighlight": "இன்றைய சிறப்பு",
+  "teachersNote": "ஆசிரியர் குறிப்பு",
+  "growingIn": "வளர்ந்து வருபவை",
+  "todaysGrowth": "இன்றைய வளர்ச்சி",
+  "homework": "வீட்டுப்பாடம்",
+  "attendance": "வருகை",
+  "updates": "அறிவிப்புகள்",
+  "pendingCount": "{count} நிலுவை",
+  "@pendingCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "completedCount": "{count} முடிந்தது",
+  "@completedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "newUpdatesCount": "{count} புதிய அறிவிப்புகள்",
+  "@newUpdatesCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "present": "வந்தார்",
+  "absent": "வராத நாள்",
+  "leave": "விடுப்பு",
+  "needsAttention": "கவனம் தேவை",
+  "dueToday": "இன்று கடைசி நாள்",
+  "overdue": "தாமதம்",
+  "upcoming": "வரவிருக்கும்",
+  "completed": "முடிந்தது",
+  "dueTomorrow": "நாளை கடைசி நாள்",
+  "dueOnDate": "{date} அன்று கடைசி நாள்",
+  "@dueOnDate": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "dueInDays": "{days} நாட்களில் கடைசி நாள்",
+  "@dueInDays": {
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "markAsCompleted": "முடிந்ததாக குறி",
+  "markedComplete": "முடிந்தது",
+  "homeworkProgress": "{total}-இல் {done} முடிந்தது",
+  "@homeworkProgress": {
+    "placeholders": {
+      "done": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "filterAll": "அனைத்தும்",
+  "filterPending": "நிலுவை",
+  "filterCompleted": "முடிந்தவை",
+  "noHomeworkTitle": "நிலுவை வீட்டுப்பாடம் இல்லை",
+  "noHomeworkBody": "இன்றைய நாளை மகிழ்ச்சியாக கழிக்கவும்.",
+  "noNotificationsTitle": "அனைத்தும் பார்த்துவிட்டீர்கள்",
+  "noNotificationsBody": "புதிய பள்ளி அறிவிப்புகள் இங்கே தோன்றும்.",
+  "noActivitiesTitle": "செயல்பாடுகள் இன்னும் பதிவு செய்யப்படவில்லை",
+  "noActivitiesBody": "பள்ளி சேர்க்கும் போது சாதனைகளும் நிகழ்வுகளும் இங்கே காட்டப்படும்.",
+  "searchDiary": "டைரியில் தேடு",
+  "searchHint": "அறிவியல், பெற்றோர் கூட்டம்…",
+  "teacherNotes": "ஆசிரியர் குறிப்புகள்",
+  "schoolNotices": "பள்ளி அறிவிப்புகள்",
+  "activities": "செயல்பாடுகள்",
+  "noDiaryTitle": "இந்த நாளில் பதிவு இல்லை",
+  "noDiaryBody": "வீட்டுப்பாடம், குறிப்புகள், அறிவிப்புகள் வெளியிடப்படும்போது இங்கே தோன்றும்.",
+  "academics": "கல்வி",
+  "homeworkPerformance": "வீட்டுப்பாடம்",
+  "growth": "வளர்ச்சி",
+  "academicYear": "கல்வி ஆண்டு",
+  "averageLabel": "சராசரி",
+  "attendancePercent": "{percent}% வருகை",
+  "@attendancePercent": {
+    "placeholders": {
+      "percent": {
+        "type": "int"
+      }
+    }
+  },
+  "presentCount": "வந்த நாட்கள்",
+  "absentCount": "வராத நாட்கள்",
+  "leaveCount": "விடுப்பு",
+  "attendanceWarning": "வருகை கவனம் தேவை.",
+  "feeDue": "கட்டணம் நிலுவை",
+  "remainingAmount": "{amount} மீதம்",
+  "@remainingAmount": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "viewDetails": "விவரங்களைப் பார்",
+  "tuitionFee": "பள்ளிக் கட்டணம்",
+  "transportFee": "போக்குவரத்துக் கட்டணம்",
+  "activityFee": "செயல்பாட்டுக் கட்டணம்",
+  "otherFees": "பிற கட்டணங்கள்",
+  "total": "மொத்தம்",
+  "paid": "செலுத்தியது",
+  "remainingBalance": "மீதமுள்ள தொகை",
+  "paymentHistory": "கட்டண வரலாறு",
+  "receipt": "ரசீது",
+  "paymentSuccessful": "வெற்றி",
+  "paymentPending": "நிலுவை",
+  "paymentProcessing": "செயல்பாட்டில்",
+  "paymentFailed": "தோல்வி",
+  "digitalId": "டிஜிட்டல் மாணவர் அட்டை",
+  "tapToOpenId": "அட்டையைத் திறக்க தட்டவும்",
+  "admissionNo": "சேர்க்கை எண்",
+  "rollNo": "வகுப்பு எண்",
+  "notifications": "அறிவிப்புகள்",
+  "groupedUpdates": "{count} புதிய பள்ளி அறிவிப்புகள்",
+  "@groupedUpdates": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "unableToRefresh": "இப்போது புதுப்பிக்க முடியவில்லை.",
+  "showingLastSynced": "கடைசியாக ஒத்திசைக்கப்பட்ட தகவல் காட்டப்படுகிறது.",
+  "tryAgain": "மீண்டும் முயற்சி",
+  "lastUpdated": "புதுப்பிக்கப்பட்டது {time}",
+  "@lastUpdated": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "language": "மொழி",
+  "english": "ஆங்கிலம்",
+  "tamil": "தமிழ்",
+  "schoolIdentity": "பள்ளி",
+  "studentInformation": "மாணவர் தகவல்",
+  "verifyQrHint": "சரிபார்ப்பு குறியீடு",
+  "unitTests": "யூனிட் தேர்வுகள்",
+  "quarterlyExams": "காலாண்டுத் தேர்வுகள்",
+  "halfYearlyExams": "அரையாண்டுத் தேர்வுகள்",
+  "annualExams": "ஆண்டுத் தேர்வுகள்",
+  "subjectMarks": "மதிப்பெண்கள்",
+  "teacherRemarks": "ஆசிரியர் கருத்து",
+  "achievement": "சாதனை",
+  "position": "முடிவு",
+  "category": "வகை",
+  "academicHistory": "கல்வி வரலாறு",
+  "homeworkConsistency": "வீட்டுப்பாடத் தொடர்ச்சி",
+  "teacherObservations": "ஆசிரியர் கவனிப்புகள்",
+  "schoolAssessedSkills": "பள்ளி மதிப்பீட்டுத் திறன்கள்",
+  "offlinePending": "ஒத்திசைவு காத்திருக்கிறது",
+  "importantAnnouncement": "முக்கிய அறிவிப்பு",
+  "parentMeeting": "பெற்றோர் கூட்டம்",
+  "seeAllHomework": "அனைத்து வீட்டுப்பாடமும்",
+  "calendar": "நாட்காட்டி",
+  "todayLabel": "இன்று",
+  "tabBusTracking": "பேருந்து கண்காணிப்பு",
+  "etaToYourStop": "உங்கள் நிறுத்தத்திற்கு வரவிருக்கும் நேரம்",
+  "nextStop": "அடுத்த நிறுத்தம்",
+  "tripStarted": "பயணம் தொடங்கியது",
+  "tripEnded": "பயணம் முடிந்தது",
+  "vehicle": "வாகனம்",
+  "yesterday": "நேற்று",
+  "attachment": "இணைப்பு",
+  "classTeacher": "வகுப்பு ஆசிரியர்",
+  "selected": "தேர்ந்தெடுக்கப்பட்டது",
+  "percentValue": "{value}%",
+  "@percentValue": {
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "idCardTitle": "மாணவர் அடையாள அட்டை",
+  "bloodGroup": "இரத்த வகை",
+  "validUntil": "காலாவதி தேதி",
+  "academicDetails": "கல்வி விவரங்கள்",
+  "schoolFees": "பள்ளிக் கட்டணம்",
+  "totalFees": "மொத்த கட்டணம்",
+  "amountPaid": "செலுத்திய தொகை",
+  "amountDue": "நிலுவைத் தொகை",
+  "payNow": "கட்டணம் செலுத்து",
+  "feesPaid": "கட்டணம் செலுத்தப்பட்டது",
+  "informLeave": "விடுப்புத் தகவல்",
+  "informLate": "தாமதத் தகவல்",
+  "requestLeave": "விடுப்பு விண்ணப்பம்",
+  "leaveReason": "விடுப்பிற்கான காரணம்",
+  "lateReason": "தாமதத்திற்கான காரணம்",
+  "cancel": "ரத்து",
+  "send": "அனுப்பு",
+  "aboutMessagesTitle": "செய்திகள் பற்றி",
+  "aboutMessagesContent": "உங்கள் குழந்தையின் வகுப்பு ஆசிரியருடன் நேரடியாகத் தொடர்பு கொள்ளுங்கள். விடுப்பு விண்ணப்பிக்க அல்லது தாமதத்தைப் பற்றி தெரிவிக்க மேலே உள்ள விரைவான தேர்வுகளைப் பயன்படுத்தவும். அதிகாரப்பூர்வ ஆவணங்களையும் (2MB வரை) பதிவேற்றலாம்.",
+  "selectDocument": "ஆவணத்தைத் தேர்ந்தெடுக்கவும்",
+  "fileLimitHint": "PDF, Word அல்லது படம் · அதிகபட்சம் 2MB",
+  "fileTooLarge": "கோப்பு அளவு அதிகம். அதிகபட்ச அளவு 2MB.",
+  "uploadedDocument": "ஆவணம் பதிவேற்றப்பட்டது.",
+  "typeMessage": "செய்தி எழுதுங்கள்…",
+  "filePickFailed": "கோப்பைத் தேர்ந்தெடுக்க முடியவில்லை. மீண்டும் முயலவும்.",
+  "messagesUnavailable": "இப்போது செய்திகளை ஏற்ற முடியவில்லை. கீழே இழுத்து மீண்டும் முயலவும்.",
+  "messageSendFailed": "செய்தி அனுப்பப்படவில்லை. மீண்டும் முயலவும்.",
+  "verifiedStudent": "சரிபார்க்கப்பட்ட மாணவர்",
+  "duration": "கால அளவு",
+  "daysLabel": "நாட்கள்",
+  "close": "மூடு",
+  "selectDate": "தேதியைத் தேர்ந்தெடுக்கவும்",
+  "fromDate": "தொடங்கும் தேதி",
+  "toDate": "முடிவடையும் தேதி",
+  "reasonHint": "உதாரணம்: குடும்ப விழா, காய்ச்சல்...",
+  "submitRequest": "விண்ணப்பிக்கவும்",
+  "pleaseSelectDate": "தயவுசெய்து தேதியைத் தேர்ந்தெடுக்கவும்",
+  "pleaseSelectDateRange": "தயவுசெய்து தேதிகளைத் தேர்ந்தெடுக்கவும்",
+  "studentTeacher": "{name}-இன் ஆசிரியர்",
+  "@studentTeacher": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "underReview": "மதிப்பாய்வில் உள்ளது",
+  "submittedForReview": "மதிப்பாய்விற்கு சமர்ப்பிக்கப்பட்டது",
+  "cancelSubmission": "சமர்ப்பிப்பை ரத்து செய்",
+  "assignedOn": "ஒதுக்கப்பட்ட நாள்",
+  "instructions": "அறிவுறுத்தல்கள்",
+  "dueOn": "கடைசி நாள்",
+  "noPendingHomework": "அனைத்தும் முடிந்துவிட்டது!",
+  "noReviewHomework": "மதிப்பாய்வில் வீட்டுப்பாடம் எதுவுமில்லை",
+  "noCompletedHomework": "உங்கள் முடிந்த வீட்டுப்பாடங்கள் இங்கே தோன்றும்",
+  "stars": "நட்சத்திரங்கள்",
+  "starsEarned": "பெற்ற நட்சத்திரங்கள்",
+  "starsThisWeek": "இந்த வாரம் +{count}",
+  "starFrom": "{teacher} வழங்கியது",
+  "noStarsTitle": "இன்னும் நட்சத்திரங்கள் இல்லை",
+  "noStarsBody": "உங்கள் குழந்தை நல்ல செயல் செய்யும்போது — அன்பு, சிறந்த வேலை, தலைமைப் பண்பு — ஆசிரியர்கள் நட்சத்திரம் வழங்குவார்கள். அவை இங்கே தோன்றும்.",
+  "starsTapHint": "எதற்காகப் பெற்றார் எனப் பாருங்கள்",
+  "skills": "திறன்கள்",
+  "seeAll": "அனைத்தும்",
+  "latestExam": "சமீபத்திய தேர்வு",
+  "noMarksYet": "இன்னும் மதிப்பெண்கள் இல்லை",
+  "growthEmptyTitle": "இன்னும் எதுவும் பதிவு செய்யப்படவில்லை",
+  "growthEmptyBody": "ஆசிரியர் குறிப்புகளும் திறன் மதிப்பீடுகளும் இங்கே தோன்றும்.",
+  "skillLevelEmerging": "தொடக்க நிலை",
+  "skillLevelDeveloping": "வளர்ந்து வருகிறது",
+  "skillLevelProficient": "திறமையானவர்",
+  "skillLevelAdvanced": "மேம்பட்ட நிலை",
+  "skillScaleHint": "தொடக்க நிலை → வளர்ந்து வருகிறது → திறமையானவர் → மேம்பட்ட நிலை",
+  "schoolLife": "பள்ளி வாழ்க்கை",
+  "timetable": "கால அட்டவணை",
+  "events": "நிகழ்வுகள்",
+  "schoolBus": "பள்ளிப் பேருந்து",
+  "newCount": "{count} புதியவை",
+  "progressEmptyHint": "ஆசிரியர்கள் நட்சத்திரங்கள், செயல்பாடுகள், குறிப்புகளைப் பதிவு செய்யும்போது உங்கள் குழந்தையின் முன்னேற்றம் இங்கே தெரியும்.",
+  "recordedBy": "{teacher} பதிவு செய்தது",
+  "classLabelTitle": "வகுப்பு",
+  "signOut": "வெளியேறு",
+  "signOutConfirmTitle": "வெளியேற வேண்டுமா?",
+  "signOutConfirmBody": "மீண்டும் உள்நுழைய பதிவு எண்ணும் கடவுச்சொல்லும் தேவைப்படும்.",
+  "examSchedule": "தேர்வு அட்டவணை",
+  "reportCards": "மதிப்பெண் அட்டைகள்",
+  "examOngoing": "நடைபெறுகிறது",
+  "examUpcoming": "வரவிருக்கிறது",
+  "noMarksTitle": "இன்னும் மதிப்பெண்கள் இல்லை",
+  "noMarksBody": "ஆசிரியர்கள் மதிப்பெண்களைப் பதிவு செய்தவுடன் இங்கே தோன்றும்.",
+  "noAttendanceTitle": "இன்னும் வருகைப் பதிவு இல்லை",
+  "noAttendanceBody": "வகுப்பு ஆசிரியர் வருகையைப் பதிவு செய்யத் தொடங்கியதும் இங்கே தெரியும்.",
+  "previousMonth": "முந்தைய மாதம்",
+  "nextMonth": "அடுத்த மாதம்",
+  "timetableNoneTitle": "இன்னும் கால அட்டவணை இல்லை",
+  "timetableNoneBody": "இந்த வகுப்பின் கால அட்டவணையை பள்ளி இன்னும் வெளியிடவில்லை.",
+  "timetableErrorTitle": "கால அட்டவணையை ஏற்ற முடியவில்லை",
+  "timetableErrorBody": "இணைய இணைப்பைச் சரிபார்த்து மீண்டும் முயலவும்.",
+  "noClassesOnDay": "{day} அன்று வகுப்புகள் இல்லை",
+  "periodsCount": "{count} பாட வேளைகள்",
+  "periodNow": "இப்போது",
+  "periodNext": "அடுத்து",
+  "periodCover": "மாற்று ஆசிரியர்",
+  "todaysPeriods": "இன்றைய வகுப்புகள்",
+  "fullWeek": "முழு வாரம்",
+  "schoolDayOver": "இன்றைய பள்ளி நேரம் முடிந்தது",
+  "minutesShort": "{count} நிமி",
+  "tomorrowLabel": "நாளை",
+  "pickDates": "தேதிகளைத் தேர்வு செய்க",
+  "whenLabel": "எப்போது?",
+  "whyLabel": "காரணம்?",
+  "reasonUnwell": "காய்ச்சல் / உடல்நலக் குறைவு",
+  "reasonDoctor": "மருத்துவர் சந்திப்பு",
+  "reasonFamily": "குடும்ப நிகழ்ச்சி",
+  "reasonTravel": "பயணம்",
+  "reasonOther": "மற்றவை",
+  "addNoteOptional": "ஆசிரியருக்கு குறிப்பு சேர்க்கவும் (விருப்பம்)",
+  "describeReason": "காரணத்தை ஆசிரியரிடம் கூறுங்கள்",
+  "leaveDays": "{count, plural, =1{1 நாள்} other{{count} நாட்கள்}}",
+  "appTagline": "உங்கள் குழந்தையின் பயணம், இணைக்கப்பட்டது",
+  "parentLogin": "பெற்றோர் உள்நுழைவு",
+  "parentLoginHelp": "பள்ளி வழங்கிய பதிவு எண்ணையும் கடவுச்சொல்லையும் பயன்படுத்துங்கள்.",
+  "registerNumber": "பதிவு எண்",
+  "passwordLabel": "கடவுச்சொல்",
+  "loginButton": "உள்நுழைக",
+  "signingIn": "உள்நுழைகிறது…",
+  "enterRegisterAndPassword": "பதிவு எண்ணையும் கடவுச்சொல்லையும் உள்ளிடவும்.",
+  "showPassword": "கடவுச்சொல்லைக் காட்டு",
+  "hidePassword": "கடவுச்சொல்லை மறை"
+,
+  "exExams": "தேர்வுகள்",
+  "exResults": "முடிவுகள்",
+  "exUpcoming": "வரவிருக்கும்",
+  "exOngoing": "நடைபெறுகிறது",
+  "exCompleted": "முடிந்தவை",
+  "exNoExamsTitle": "இங்கே தேர்வுகள் இல்லை",
+  "exNoExamsBody": "பள்ளி வெளியிட்டவுடன் தேர்வு அட்டவணைகள் இங்கே தோன்றும்.",
+  "exToday": "இன்று",
+  "exTomorrow": "நாளை",
+  "exInDays": "{count} நாட்களில்",
+  "exDone": "முடிந்தது",
+  "exNext": "அடுத்தது: {subject} · {when}",
+  "exSubjectCount": "{count, plural, =1{1 பாடம்} other{{count} பாடங்கள்}}",
+  "exTimetable": "அட்டவணை",
+  "exTapForSyllabus": "பாடத்திட்டத்தைப் பார்க்க ஒரு பாடத்தைத் தட்டவும்.",
+  "exSyllabus": "பாடத்திட்டம்",
+  "exNoSyllabus": "பாடத்திட்டம் சேர்க்கப்படவில்லை.",
+  "exOutOf": "மொத்தம் {max}",
+  "exPassMark": "தேர்ச்சி மதிப்பெண் {pass}",
+  "exResultsOut": "{total} பாடங்களில் {released} வெளியானது",
+  "exResultsNotOut": "முடிவுகள் இன்னும் வெளியாகவில்லை",
+  "exAllResultsOut": "அனைத்து முடிவுகளும் வெளியானது",
+  "exStatementOfMarks": "மதிப்பெண் பட்டியல்",
+  "exStudentName": "பெயர்",
+  "exRegisterNo": "பதிவு எண்",
+  "exClassSection": "வகுப்பு & பிரிவு",
+  "exRollNo": "வரிசை எண்",
+  "exSNo": "வ.எண்",
+  "exSubject": "பாடம்",
+  "exMax": "மொத்தம்",
+  "exPass": "தேர்ச்சி",
+  "exMarks": "மதிப்பெண்",
+  "exResult": "முடிவு",
+  "exResultPass": "தேர்ச்சி",
+  "exResultFail": "தோல்வி",
+  "exAbsent": "AB",
+  "exTotal": "மொத்தம்",
+  "exPercentage": "சதவீதம்",
+  "exOverall": "ஒட்டுமொத்த முடிவு",
+  "exAwaited": "காத்திருப்பு",
+  "exPendingNote": "{count, plural, =1{1 பாடம் இன்னும் வெளியிடப்படவில்லை} other{{count} பாடங்கள் இன்னும் வெளியிடப்படவில்லை}} — ஆசிரியர் மதிப்பெண்களைச் சமர்ப்பித்தவுடன் இங்கே தோன்றும்.",
+  "exAbsentNote": "AB — இந்தத் தேர்வுக்கு வரவில்லை.",
+  "exNoResultsTitle": "இன்னும் முடிவுகள் இல்லை",
+  "exNoResultsBody": "ஆசிரியர்கள் மதிப்பெண்களை வெளியிடும்போது முடிவுகள் இங்கே தோன்றும்.",
+  "exNothingScheduled": "எதுவும் திட்டமிடப்படவில்லை",
+  "exOnNow": "இப்போது · {exam}",
+  "exStartsIn": "{exam} · {when}",
+  "exLatestResult": "சமீபத்தியது: {exam}",
+  "exYourChildTimetable": "{grade} அட்டவணை",
+  "exSeeResults": "முடிவுகளைப் பார்",
+  "exDate": "தேதி",
+  "exTime": "நேரம்",
+  "exGrade": "தரம்",
+  "exGraded": "தரம் வழங்கப்படும்",
+  "exOverallGrade": "ஒட்டுமொத்த தரம்",
+  "exGradeScale": "தர அளவு",
+  "libBooksBorrowed": "கடன் வாங்கிய புத்தகங்கள்",
+  "libHoldingNow": "{count, plural, =1{{name} இடம் இப்போது 1 புத்தகம்} other{{name} இடம் இப்போது {count} புத்தகங்கள்}}",
+  "libAllReturned": "அனைத்தும் திருப்பி அளிக்கப்பட்டன — இப்போது எதுவும் இல்லை",
+  "libAttentionOverdue": "கவனம் தேவை · காலக்கெடு கடந்தது",
+  "libAttentionDueSoon": "கவனம் தேவை · விரைவில் திருப்பித் தர வேண்டும்",
+  "libBorrowedNow": "தற்போது கடன் வாங்கியவை",
+  "libReturnedSection": "திருப்பி அளிக்கப்பட்டவை",
+  "libNoneNow": "நூலகப் புத்தகங்கள் அனைத்தும் திருப்பி அளிக்கப்பட்டன.",
+  "libBookName": "புத்தகத்தின் பெயர்",
+  "libAuthor": "நூலாசிரியர்",
+  "libPublisher": "பதிப்பகம்",
+  "libBorrowedOn": "கடன் வாங்கிய தேதி",
+  "libDueDate": "திருப்பித் தர வேண்டிய தேதி",
+  "libReturnedOn": "திருப்பி அளித்த தேதி",
+  "libDueIn": "{days} நாட்களில் திருப்பித் தர வேண்டும்",
+  "libDueTomorrow": "நாளை திருப்பித் தர வேண்டும்",
+  "libDueToday": "இன்று திருப்பித் தர வேண்டும்",
+  "libOverdueBy": "{days, plural, =1{1 நாள் தாமதம்} other{{days} நாட்கள் தாமதம்}}",
+  "libReturnedChip": "திருப்பி அளிக்கப்பட்டது",
+  "libOverdueNote": "கவனம் தேவை — இந்தப் புத்தகத்தின் காலக்கெடு கடந்துவிட்டது. தயவுசெய்து பள்ளி நூலகத்தில் திருப்பி அளிக்கவும்.",
+  "libDueSoonNote": "கவனம் தேவை — இந்தப் புத்தகத்தை விரைவில் திருப்பித் தர வேண்டும்.",
+  "libReturnAtDesk": "புத்தகங்கள் பள்ளி நூலகத்தில் வழங்கப்பட்டு, அங்கேயே திருப்பிப் பெறப்படும்.",
+  "libLoadError": "நூலகப் புத்தகங்களை ஏற்ற முடியவில்லை. மீண்டும் முயல கீழே இழுக்கவும்."
+}

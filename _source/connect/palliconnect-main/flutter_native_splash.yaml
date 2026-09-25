@@ -1,0 +1,22 @@
+# Launch splash drawn by the OS before Flutter's first frame. Colors = the
+# app's own page background (AppColors.pageGradient start, light / dark) so it
+# hands off to SplashScreen without a color flash. Images come from
+# tools/brand_assets.py (padded so Android's circle mask can't crop the badge).
+# Regenerate: python ../tools/brand_assets.py && dart run flutter_native_splash:create
+flutter_native_splash:
+  color: "#F7FBFF"
+  color_dark: "#050B14"
+  image: assets/icon/splash_logo.png
+  image_dark: assets/icon/splash_logo.png
+  android: true
+  ios: false # no ios/ platform scaffold in this project yet
+  web: false
+  fullscreen: true
+  android_gravity: center
+  ios_content_mode: center
+
+  android_12:
+    color: "#F7FBFF"
+    color_dark: "#050B14"
+    image: assets/icon/splash_android12.png
+    image_dark: assets/icon/splash_android12.png

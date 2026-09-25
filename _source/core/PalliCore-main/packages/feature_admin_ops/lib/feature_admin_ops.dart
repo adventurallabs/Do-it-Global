@@ -1,0 +1,10 @@
+export 'src/dashboard_bloc.dart';
+export 'src/attendance_overview_screen.dart';
+export 'src/leave_desk_screen.dart';
+export 'src/academics_screen.dart';
+export 'src/exams_screen.dart';
+export 'src/admissions_screen.dart';
+export 'src/student_leave_desk_screen.dart';
+export 'src/exams/exam_detail_screen.dart';
+export 'src/exams/exam_results_screen.dart';
+export 'src/attendance_insights_screen.dart';

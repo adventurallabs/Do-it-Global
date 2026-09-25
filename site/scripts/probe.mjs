@@ -1,0 +1,10 @@
+import { chromium } from 'playwright-core'
+const [url, y, expr] = process.argv.slice(2)
+const browser = await chromium.launch({ executablePath: 'C:/Program Files/Google/Chrome/Application/chrome.exe', headless: true })
+const page = await browser.newPage({ viewport: { width: 1440, height: 900 } })
+await page.goto(url, { waitUntil: 'networkidle' })
+await page.waitForTimeout(2500)
+await page.evaluate(async (t) => { for (let i = 1; i <= 12; i++) { scrollTo(0, (t * i) / 12); await new Promise((r) => setTimeout(r, 40)) } }, Number(y))
+await page.waitForTimeout(3000)
+console.log(await page.evaluate(expr))
+await browser.close()

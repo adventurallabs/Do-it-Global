@@ -1,0 +1,10 @@
+# Miscellaneous
+*.class
+*.log
+.DS_Store
+.idea/
+*.iml
+/pubspec.lock
+.dart_tool/
+/build/
+/coverage/

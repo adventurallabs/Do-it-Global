@@ -1,0 +1,27 @@
+name: feature_library
+description: "The Digital Library — the librarian's dashboard, plus the staff Books borrowed card."
+version: 0.0.1
+publish_to: none
+
+environment:
+  sdk: ^3.13.2
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_bloc: ^9.1.0
+  intl: ^0.20.2
+  feature_auth:
+    path: ../feature_auth
+  core_models:
+    path: ../core_models
+  core_data:
+    path: ../core_data
+  core_ui:
+    path: ../core_ui
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0

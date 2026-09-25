@@ -1,0 +1,516 @@
+{
+  "@@locale": "en",
+  "appTitle": "PalliConnect",
+  "tabToday": "Today",
+  "tabDiary": "Diary",
+  "tabMessages": "Messages",
+  "tabProgress": "Progress",
+  "tabProfile": "Profile",
+  "goodMorning": "Good morning",
+  "goodAfternoon": "Good afternoon",
+  "goodEvening": "Good evening",
+  "switchStudent": "Switch student",
+  "addStudent": "Add student",
+  "classSection": "{className}-{section}",
+  "@classSection": {
+    "placeholders": {
+      "className": {
+        "type": "String"
+      },
+      "section": {
+        "type": "String"
+      }
+    }
+  },
+  "todaysOverview": "Today's school overview",
+  "schoolDayTitle": "{name}'s School Day",
+  "@schoolDayTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "todayAtSchool": "Today at school",
+  "todaysLearning": "Today’s Learning",
+  "whatStudentLearned": "What {name} learned",
+  "@whatStudentLearned": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "homeworkStatus": "Homework Status",
+  "todaysHighlight": "Today’s Highlight",
+  "teachersNote": "Teacher’s note",
+  "growingIn": "Growing In",
+  "todaysGrowth": "Today’s growth",
+  "homework": "Homework",
+  "attendance": "Attendance",
+  "updates": "Updates",
+  "pendingCount": "{count} pending",
+  "@pendingCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "completedCount": "{count} completed",
+  "@completedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "newUpdatesCount": "{count} new updates",
+  "@newUpdatesCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "present": "Present",
+  "absent": "Absent",
+  "leave": "Leave",
+  "needsAttention": "Needs attention",
+  "dueToday": "Due today",
+  "overdue": "Overdue",
+  "upcoming": "Upcoming",
+  "completed": "Completed",
+  "dueTomorrow": "Due tomorrow",
+  "dueOnDate": "Due {date}",
+  "@dueOnDate": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "dueInDays": "Due in {days} days",
+  "@dueInDays": {
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "markAsCompleted": "Mark as completed",
+  "markedComplete": "Completed",
+  "homeworkProgress": "{done} of {total} completed",
+  "@homeworkProgress": {
+    "placeholders": {
+      "done": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "filterAll": "All",
+  "filterPending": "Pending",
+  "filterCompleted": "Completed",
+  "noHomeworkTitle": "No homework pending",
+  "noHomeworkBody": "Enjoy your day.",
+  "noNotificationsTitle": "You're all caught up",
+  "noNotificationsBody": "New school updates will appear here.",
+  "noActivitiesTitle": "No activities recorded yet",
+  "noActivitiesBody": "Achievements and events will show here when the school adds them.",
+  "searchDiary": "Search diary",
+  "searchHint": "Science, parent meeting…",
+  "teacherNotes": "Teacher notes",
+  "schoolNotices": "School notices",
+  "activities": "Activities",
+  "noDiaryTitle": "Nothing recorded this day",
+  "noDiaryBody": "Homework, notes, and notices will appear here when published.",
+  "academics": "Academics",
+  "homeworkPerformance": "Homework",
+  "growth": "Growth",
+  "academicYear": "Academic year",
+  "averageLabel": "Average",
+  "attendancePercent": "{percent}% attendance",
+  "@attendancePercent": {
+    "placeholders": {
+      "percent": {
+        "type": "int"
+      }
+    }
+  },
+  "presentCount": "Present",
+  "absentCount": "Absent",
+  "leaveCount": "Leave",
+  "attendanceWarning": "Attendance requires attention.",
+  "feeDue": "Fee due",
+  "remainingAmount": "{amount} remaining",
+  "@remainingAmount": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "viewDetails": "View details",
+  "tuitionFee": "Tuition fee",
+  "transportFee": "Transport fee",
+  "activityFee": "Activity fee",
+  "otherFees": "Other fees",
+  "total": "Total",
+  "paid": "Paid",
+  "remainingBalance": "Remaining balance",
+  "paymentHistory": "Payment history",
+  "receipt": "Receipt",
+  "paymentSuccessful": "Successful",
+  "paymentPending": "Pending",
+  "paymentProcessing": "Processing",
+  "paymentFailed": "Failed",
+  "digitalId": "Digital student ID",
+  "tapToOpenId": "Tap to open ID card",
+  "admissionNo": "Admission no.",
+  "rollNo": "Roll no.",
+  "notifications": "Notifications",
+  "groupedUpdates": "{count} new school updates",
+  "@groupedUpdates": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "unableToRefresh": "Unable to refresh right now.",
+  "showingLastSynced": "Showing your last synced information.",
+  "tryAgain": "Try again",
+  "lastUpdated": "Updated {time}",
+  "@lastUpdated": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "language": "Language",
+  "english": "English",
+  "tamil": "Tamil",
+  "schoolIdentity": "School",
+  "studentInformation": "Student information",
+  "verifyQrHint": "Verification code",
+  "unitTests": "Unit tests",
+  "quarterlyExams": "Quarterly exams",
+  "halfYearlyExams": "Half-yearly exams",
+  "annualExams": "Annual exams",
+  "subjectMarks": "Marks",
+  "teacherRemarks": "Teacher remarks",
+  "achievement": "Achievement",
+  "position": "Result",
+  "category": "Category",
+  "academicHistory": "Academic history",
+  "homeworkConsistency": "Homework consistency",
+  "teacherObservations": "Teacher observations",
+  "schoolAssessedSkills": "School-assessed skills",
+  "offlinePending": "Waiting to sync",
+  "importantAnnouncement": "Important announcement",
+  "parentMeeting": "Parent meeting",
+  "seeAllHomework": "See all homework",
+  "calendar": "Calendar",
+  "todayLabel": "Today",
+  "tabBusTracking": "Bus Tracking",
+  "etaToYourStop": "ETA to your stop",
+  "nextStop": "Next Stop",
+  "tripStarted": "Trip Started",
+  "tripEnded": "Trip Ended",
+  "vehicle": "Vehicle",
+  "yesterday": "Yesterday",
+  "attachment": "Attachment",
+  "classTeacher": "Class teacher",
+  "selected": "Selected",
+  "percentValue": "{value}%",
+  "@percentValue": {
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "idCardTitle": "STUDENT IDENTITY CARD",
+  "bloodGroup": "Blood group",
+  "validUntil": "Valid until",
+  "academicDetails": "Academic details",
+  "schoolFees": "School Fees",
+  "totalFees": "Total Fees",
+  "amountPaid": "Amount Paid",
+  "amountDue": "Amount Due",
+  "payNow": "Pay Now",
+  "feesPaid": "Fees Paid",
+  "informLeave": "Inform Leave",
+  "informLate": "Inform Late",
+  "requestLeave": "Request Leave",
+  "leaveReason": "Reason for leave",
+  "lateReason": "Reason for delay",
+  "cancel": "Cancel",
+  "send": "Send",
+  "aboutMessagesTitle": "About Messages",
+  "aboutMessagesContent": "Connect directly with your child's class teacher. Use quick actions at the top to request leave or inform the school about delays. You can also upload documents (up to 2MB) for official records.",
+  "selectDocument": "Select a document",
+  "fileLimitHint": "PDF, Word, or image · max 2MB",
+  "fileTooLarge": "File too large. Max limit is 2MB.",
+  "uploadedDocument": "Uploaded a document.",
+  "typeMessage": "Write a message…",
+  "filePickFailed": "Couldn’t open the file picker. Please try again.",
+  "messagesUnavailable": "Couldn't load messages right now. Pull down to try again.",
+  "messageSendFailed": "Message didn't send. Please try again.",
+  "verifiedStudent": "Verified Student",
+  "duration": "Duration",
+  "daysLabel": "days",
+  "close": "Close",
+  "selectDate": "Select Date",
+  "fromDate": "From",
+  "toDate": "To",
+  "reasonHint": "e.g. Family function, fever...",
+  "submitRequest": "Submit Request",
+  "pleaseSelectDate": "Please select a date",
+  "pleaseSelectDateRange": "Please select date range",
+  "studentTeacher": "{name}'s Teacher",
+  "@studentTeacher": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "underReview": "Under Review",
+  "submittedForReview": "Submitted for review",
+  "cancelSubmission": "Cancel submission",
+  "assignedOn": "Assigned on",
+  "instructions": "Instructions",
+  "dueOn": "Due on",
+  "noPendingHomework": "All caught up!",
+  "noReviewHomework": "No homework under review",
+  "noCompletedHomework": "Your completed homework will appear here",
+  "stars": "Stars",
+  "starsEarned": "Stars earned",
+  "starsThisWeek": "+{count} this week",
+  "@starsThisWeek": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "starFrom": "from {teacher}",
+  "@starFrom": {
+    "placeholders": {
+      "teacher": {
+        "type": "String"
+      }
+    }
+  },
+  "noStarsTitle": "No stars yet",
+  "noStarsBody": "Teachers give stars when your child does something good — kindness, great work, leadership. They'll show up here.",
+  "starsTapHint": "See why they were earned",
+  "skills": "Skills",
+  "seeAll": "See all",
+  "latestExam": "Latest exam",
+  "noMarksYet": "No marks yet",
+  "growthEmptyTitle": "Nothing recorded yet",
+  "growthEmptyBody": "Notes from teachers and skill ratings will appear here.",
+  "skillLevelEmerging": "Emerging",
+  "skillLevelDeveloping": "Developing",
+  "skillLevelProficient": "Proficient",
+  "skillLevelAdvanced": "Advanced",
+  "skillScaleHint": "Emerging → Developing → Proficient → Advanced",
+  "schoolLife": "School life",
+  "timetable": "Timetable",
+  "events": "Events",
+  "schoolBus": "School bus",
+  "newCount": "{count} new",
+  "@newCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "progressEmptyHint": "As teachers record stars, activities and notes, your child's progress builds up here.",
+  "recordedBy": "By {teacher}",
+  "@recordedBy": {
+    "placeholders": {
+      "teacher": {
+        "type": "String"
+      }
+    }
+  },
+  "classLabelTitle": "Class",
+  "signOut": "Sign out",
+  "signOutConfirmTitle": "Sign out?",
+  "signOutConfirmBody": "You'll need the register number and password to sign in again.",
+  "examSchedule": "Exam schedule",
+  "reportCards": "Report cards",
+  "examOngoing": "Ongoing",
+  "examUpcoming": "Upcoming",
+  "noMarksTitle": "No marks yet",
+  "noMarksBody": "Test and exam results will appear here as soon as teachers enter them.",
+  "noAttendanceTitle": "No attendance yet",
+  "noAttendanceBody": "Daily attendance will show here once the class teacher starts marking it.",
+  "previousMonth": "Previous month",
+  "nextMonth": "Next month",
+  "timetableNoneTitle": "No timetable yet",
+  "timetableNoneBody": "The school hasn't published this class's schedule yet.",
+  "timetableErrorTitle": "Couldn't load the timetable",
+  "timetableErrorBody": "Check your internet connection and try again.",
+  "noClassesOnDay": "No classes on {day}",
+  "@noClassesOnDay": {
+    "placeholders": {
+      "day": {
+        "type": "String"
+      }
+    }
+  },
+  "periodsCount": "{count} periods",
+  "@periodsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "periodNow": "Now",
+  "periodNext": "Next",
+  "periodCover": "Cover",
+  "todaysPeriods": "Today's classes",
+  "fullWeek": "Full week",
+  "schoolDayOver": "School day is over",
+  "minutesShort": "{count} min",
+  "@minutesShort": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "tomorrowLabel": "Tomorrow",
+  "pickDates": "Pick dates",
+  "whenLabel": "When?",
+  "whyLabel": "Why?",
+  "reasonUnwell": "Fever / unwell",
+  "reasonDoctor": "Doctor visit",
+  "reasonFamily": "Family function",
+  "reasonTravel": "Travelling",
+  "reasonOther": "Other",
+  "addNoteOptional": "Add a note for the teacher (optional)",
+  "describeReason": "Tell the teacher the reason",
+  "leaveDays": "{count, plural, =1{1 day} other{{count} days}}",
+  "@leaveDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "appTagline": "Your child's journey, connected",
+  "parentLogin": "Parent login",
+  "parentLoginHelp": "Use the register number and password issued by your school.",
+  "registerNumber": "Register number",
+  "passwordLabel": "Password",
+  "loginButton": "Log in",
+  "signingIn": "Signing in…",
+  "enterRegisterAndPassword": "Enter the register number and password.",
+  "showPassword": "Show password",
+  "hidePassword": "Hide password"
+,
+  "exExams": "Exams",
+  "exResults": "Results",
+  "exUpcoming": "Upcoming",
+  "exOngoing": "Ongoing",
+  "exCompleted": "Completed",
+  "exNoExamsTitle": "No exams here",
+  "exNoExamsBody": "Exam timetables appear here as soon as the school publishes them.",
+  "exToday": "Today",
+  "exTomorrow": "Tomorrow",
+  "exInDays": "In {count} days",
+  "@exInDays": {"placeholders": {"count": {"type": "int"}}},
+  "exDone": "Done",
+  "exNext": "Next: {subject} · {when}",
+  "@exNext": {"placeholders": {"subject": {"type": "String"}, "when": {"type": "String"}}},
+  "exSubjectCount": "{count, plural, =1{1 subject} other{{count} subjects}}",
+  "@exSubjectCount": {"placeholders": {"count": {"type": "int"}}},
+  "exTimetable": "Timetable",
+  "exTapForSyllabus": "Tap a subject to see its syllabus.",
+  "exSyllabus": "Syllabus",
+  "exNoSyllabus": "No syllabus added.",
+  "exOutOf": "Out of {max}",
+  "@exOutOf": {"placeholders": {"max": {"type": "String"}}},
+  "exPassMark": "Pass mark {pass}",
+  "@exPassMark": {"placeholders": {"pass": {"type": "String"}}},
+  "exResultsOut": "{released} of {total} subjects out",
+  "@exResultsOut": {"placeholders": {"released": {"type": "int"}, "total": {"type": "int"}}},
+  "exResultsNotOut": "Results not out yet",
+  "exAllResultsOut": "All results are out",
+  "exStatementOfMarks": "Statement of marks",
+  "exStudentName": "Name",
+  "exRegisterNo": "Register no.",
+  "exClassSection": "Class & section",
+  "exRollNo": "Roll no.",
+  "exSNo": "S.No",
+  "exSubject": "Subject",
+  "exMax": "Max",
+  "exPass": "Pass",
+  "exMarks": "Marks",
+  "exResult": "Result",
+  "exResultPass": "PASS",
+  "exResultFail": "FAIL",
+  "exAbsent": "AB",
+  "exTotal": "Total",
+  "exPercentage": "Percentage",
+  "exOverall": "Overall result",
+  "exAwaited": "Awaited",
+  "exPendingNote": "{count, plural, =1{1 subject hasn't been published yet} other{{count} subjects haven't been published yet}} — it will appear here as soon as the teacher submits the marks.",
+  "@exPendingNote": {"placeholders": {"count": {"type": "int"}}},
+  "exAbsentNote": "AB — absent for this paper.",
+  "exNoResultsTitle": "No results yet",
+  "exNoResultsBody": "Results appear here as teachers publish marks.",
+  "exNothingScheduled": "Nothing scheduled",
+  "exOnNow": "On now · {exam}",
+  "@exOnNow": {"placeholders": {"exam": {"type": "String"}}},
+  "exStartsIn": "{exam} · {when}",
+  "@exStartsIn": {"placeholders": {"exam": {"type": "String"}, "when": {"type": "String"}}},
+  "exLatestResult": "Latest: {exam}",
+  "@exLatestResult": {"placeholders": {"exam": {"type": "String"}}},
+  "exYourChildTimetable": "{grade} timetable",
+  "@exYourChildTimetable": {"placeholders": {"grade": {"type": "String"}}},
+  "exSeeResults": "See results",
+  "exDate": "Date",
+  "exTime": "Time",
+  "exGrade": "Grade",
+  "exGraded": "Graded",
+  "exOverallGrade": "Overall grade",
+  "exGradeScale": "Grade scale",
+  "libBooksBorrowed": "Books borrowed",
+  "libHoldingNow": "{count, plural, =1{1 book with {name} now} other{{count} books with {name} now}}",
+  "@libHoldingNow": {"placeholders": {"count": {"type": "int"}, "name": {"type": "String"}}},
+  "libAllReturned": "All returned — nothing borrowed now",
+  "libAttentionOverdue": "Attention required · overdue",
+  "libAttentionDueSoon": "Attention required · due soon",
+  "libBorrowedNow": "Borrowed now",
+  "libReturnedSection": "Returned",
+  "libNoneNow": "Every library book has been returned.",
+  "libBookName": "Book name",
+  "libAuthor": "Author",
+  "libPublisher": "Publisher",
+  "libBorrowedOn": "Borrowed on",
+  "libDueDate": "Due date",
+  "libReturnedOn": "Returned on",
+  "libDueIn": "Due in {days} days",
+  "@libDueIn": {"placeholders": {"days": {"type": "int"}}},
+  "libDueTomorrow": "Due tomorrow",
+  "libDueToday": "Due today",
+  "libOverdueBy": "{days, plural, =1{Overdue by 1 day} other{Overdue by {days} days}}",
+  "@libOverdueBy": {"placeholders": {"days": {"type": "int"}}},
+  "libReturnedChip": "Returned",
+  "libOverdueNote": "Attention required — this book is past its due date. Please return it to the school library.",
+  "libDueSoonNote": "Attention required — this book is due back soon.",
+  "libReturnAtDesk": "Books are borrowed and returned at the school library.",
+  "libLoadError": "Couldn't load library books. Pull down to try again."
+}
