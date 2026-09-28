@@ -1,9 +1,10 @@
-import { lazy, Suspense } from 'react'
+import { lazy, Suspense, useRef } from 'react'
 import { Nav } from '../components/Nav'
 import { Cursor } from '../components/Cursor'
 import { MagneticButton } from '../components/MagneticButton'
 import { useScrollDirector } from '../hooks/useScrollDirector'
 import { useReducedMotion } from '../hooks/useReducedMotion'
+import { useTapNavigation } from '../hooks/useTapNavigation'
 import { PalliHero, EcosystemIntro, Connection, Philosophy, Finale } from '../sections/palli/Story'
 import { ConnectShowcase, CoreShowcase } from '../sections/palli/Showcases'
 import { AttendanceFeature, ProgressFeature, CommunicationFeature, FeesFeature, BusFeature } from '../sections/palli/Features'
@@ -16,6 +17,8 @@ const PalliScene = lazy(() => import('../three/palli/PalliScene'))
 export function PalliPage() {
   const reduced = useReducedMotion()
   useScrollDirector(reduced)
+  const main = useRef<HTMLElement>(null)
+  useTapNavigation(main)
 
   return (
     <div className="grain">
@@ -51,7 +54,7 @@ export function PalliPage() {
           </MagneticButton>
         }
       />
-      <main className="relative z-10">
+      <main ref={main} className="relative z-10 touch-manipulation">
         <PalliHero />
         <EcosystemIntro />
         <OwnApp />

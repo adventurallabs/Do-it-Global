@@ -1,5 +1,6 @@
 import { forwardRef, useRef, type CSSProperties, type ReactNode } from 'react'
 import { useFitScale } from '../hooks/useFitScale'
+import { quality } from '../lib/quality'
 
 type Kind = 'phone' | 'tablet'
 
@@ -42,7 +43,9 @@ export const DeviceFrame = forwardRef<HTMLDivElement, Props>(function DeviceFram
           <div
             aria-hidden
             className="absolute -inset-x-[6%] -bottom-[7%] h-[14%]"
-            style={{ transform: 'translateZ(-60px)', background: 'radial-gradient(closest-side, rgba(0,0,0,.7), rgba(0,0,0,.35) 55%, transparent)' }}
+            // Depth only matters when the device tilts in 3D. Touch devices keep
+            // it flat, where this would just force a GPU layer per device.
+            style={{ transform: quality.coarse ? undefined : 'translateZ(-60px)', background: 'radial-gradient(closest-side, rgba(0,0,0,.7), rgba(0,0,0,.35) 55%, transparent)' }}
           />
           {/* Chassis */}
           <div

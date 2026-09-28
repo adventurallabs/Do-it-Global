@@ -54,4 +54,17 @@ export const PNG = {
     }
     return { mean: sum / n, white: white / n }
   },
+  /** Mean and standard deviation of luma — a flat (blank) image has sd ≈ 0. */
+  lumaStats(buf) {
+    const { px, channels } = decode(buf)
+    let sum = 0, sq = 0, n = 0
+    for (let i = 0; i < px.length; i += channels * 3) {
+      const l = 0.2126 * px[i] + 0.7152 * px[i + 1] + 0.0722 * px[i + 2]
+      sum += l
+      sq += l * l
+      n++
+    }
+    const mean = sum / n
+    return { mean, sd: Math.sqrt(Math.max(0, sq / n - mean * mean)) }
+  },
 }

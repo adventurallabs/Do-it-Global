@@ -4,6 +4,7 @@ import { RevealText } from '../../components/RevealText'
 import { SectionLabel, ScrollCue } from '../../components/Primitives'
 import { MagneticButton, Arrow } from '../../components/MagneticButton'
 import { useSection } from '../../hooks/useSection'
+import { registerStops, timelineStops } from '../../lib/tapStops'
 import { useReducedMotion } from '../../hooks/useReducedMotion'
 import { SITE } from '../../data/site'
 
@@ -137,6 +138,9 @@ export function Connection() {
       })
       flows.forEach((f, i) => tl.fromTo(f, { autoAlpha: 0, x: 30 }, { autoAlpha: 1, x: 0, duration: 0.4, ease: 'power3.out' }, 3.6 + i * 0.35))
       tl.to({}, { duration: 0.8 })
+      // Tap stops: each line once it (and the heading) has settled, then the full diagram.
+      const unstop = registerStops(el, timelineStops(tl, [...lines.map((_, i) => 0.8 + i), tl.duration()]))
+      return unstop
     }, el)
     return () => ctx.revert()
   }, [reduced])

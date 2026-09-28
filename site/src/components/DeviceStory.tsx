@@ -1,10 +1,11 @@
 import { useLayoutEffect, useRef, type ReactNode } from 'react'
-import { gsap } from '../animations/gsap'
+import { gsap, ScrollTrigger } from '../animations/gsap'
 import { DeviceFrame } from './DeviceFrame'
 import { useSection } from '../hooks/useSection'
 import { useReducedMotion } from '../hooks/useReducedMotion'
 import { useIsDesktop, useMediaQuery } from '../hooks/useMediaQuery'
 import { quality } from '../lib/quality'
+import { registerStops, timelineStops } from '../lib/tapStops'
 
 export type StoryStep = {
   label: string
@@ -86,19 +87,23 @@ export function DeviceStory(p: Props) {
       // Transforms stay 2D so screens never get their own GPU layers — on
       // phones, layers promoted and dropped per transition exhausted GPU
       // memory and a screen coming back on scroll-up stayed blank (white).
+      // Hidden screens use plain `visibility`, never `content-visibility`:
+      // un-skipping a subtree on the frame it is needed is exactly when a
+      // phone falls behind, and WebKit could leave it unpainted.
       const shades = screens.map((s) => s.querySelector<HTMLElement>('[data-shade]'))
       const starts = p.steps.map((_, i) => INTRO + i - 0.5)
       const pushEase = gsap.parseEase('power3.inOut')
       const tabEase = gsap.parseEase('power2.out')
       const written: string[] = []
       let activeLabel = -1
+      let active = 0
+      let healed = false
 
-      const paint = (i: number, key: string, vis: string, cv: string, transform: string, opacity: string, shade: string) => {
+      const paint = (i: number, key: string, vis: string, transform: string, opacity: string, shade: string) => {
         if (written[i] === key) return
         written[i] = key
         const st = screens[i].style
         st.visibility = vis
-        st.contentVisibility = cv
         st.transform = transform
         st.opacity = opacity
         if (shades[i]) shades[i]!.style.opacity = shade
@@ -110,15 +115,14 @@ export function DeviceStory(p: Props) {
         const push = (p.steps[a].transition ?? 'push') === 'push'
         const q = a === 0 ? 1 : Math.min(1, (t - starts[a]) / (push ? 0.46 : 0.36))
         const e = push ? pushEase(q) : tabEase(q)
+        active = a
         for (let i = 0; i < n; i++) {
-          if (i === a && q >= 1) paint(i, 'on', 'visible', 'visible', 'none', '1', '0')
-          else if (i === a && push) paint(i, `in${e}`, 'visible', 'visible', `translate(${((1 - e) * 100).toFixed(3)}%,0)`, '1', '0')
-          else if (i === a) paint(i, `in${e}`, 'visible', 'visible', `translate(0,${((1 - e) * 2).toFixed(3)}%)`, e.toFixed(4), '0')
+          if (i === a && q >= 1) paint(i, 'on', 'visible', 'none', '1', '0')
+          else if (i === a && push) paint(i, `in${e}`, 'visible', `translate(${((1 - e) * 100).toFixed(3)}%,0)`, '1', '0')
+          else if (i === a) paint(i, `in${e}`, 'visible', `translate(0,${((1 - e) * 2).toFixed(3)}%)`, e.toFixed(4), '0')
           else if (i === a - 1 && q < 1)
-            paint(i, `out${e}`, 'visible', 'visible', push ? `translate(${(-28 * e).toFixed(3)}%,0)` : 'none', '1', push ? (0.2 * e).toFixed(4) : '0')
-          // Neighbours stay laid out (just not painted) so the next screen in
-          // either direction appears instantly; the rest skip rendering.
-          else paint(i, Math.abs(i - a) <= 1 ? 'near' : 'far', 'hidden', Math.abs(i - a) <= 1 ? 'visible' : 'hidden', 'none', '1', '0')
+            paint(i, `out${e}`, 'visible', push ? `translate(${(-28 * e).toFixed(3)}%,0)` : 'none', '1', push ? (0.2 * e).toFixed(4) : '0')
+          else paint(i, 'off', 'hidden', 'none', '1', '0')
         }
         const idx = Math.max(0, Math.min(n - 1, Math.floor(t - INTRO + 0.5)))
         if (idx !== activeLabel) {
@@ -128,16 +132,50 @@ export function DeviceStory(p: Props) {
         }
       }
 
+      // Safety net for real phones: when the scroll comes to rest (or the tab
+      // returns from the background, where mobile browsers drop GPU tiles),
+      // rewrite every screen and invalidate the visible one's paint, so a
+      // tile the GPU evicted mid-scroll is re-rastered instead of staying
+      // white. The shade alternates between two invisible values (render
+      // just wrote 0, so each heal is a real change) purely to trigger that
+      // repaint.
+      const heal = () => {
+        written.length = 0
+        render(tl.time())
+        healed = !healed
+        const shade = shades[active]
+        if (shade && written[active] === 'on') shade.style.opacity = healed ? '0.001' : '0.002'
+      }
+      const onVisible = () => document.visibilityState === 'visible' && heal()
+
+      // force3D off: GSAP otherwise swaps captions to translate3d while they
+      // tween and back afterwards — a GPU layer created and dropped on every
+      // step, which is the churn that starves a phone's raster budget.
       const tl = gsap.timeline({
-        defaults: { ease: 'power2.inOut' },
+        defaults: { ease: 'power2.inOut', force3D: false },
         onUpdate: () => render(tl.time()),
         scrollTrigger: {
           trigger: el,
           start: 'top top',
           end: 'bottom bottom',
           scrub: 0.9,
+          onScrubComplete: heal,
+          // May fire while the timeline is still being built, before `tl` exists.
+          onRefresh: (self) => self.animation && render(self.animation.time()),
         },
       })
+
+      // The device holds a GPU layer only while its story is on screen, so
+      // the two stories never pin layer memory for each other.
+      device.style.willChange = 'auto'
+      ScrollTrigger.create({
+        trigger: el,
+        start: 'top bottom',
+        end: 'bottom top',
+        onToggle: (self) => (device.style.willChange = self.isActive ? 'transform' : 'auto'),
+      })
+      document.addEventListener('visibilitychange', onVisible)
+      window.addEventListener('pageshow', heal)
 
       // Intro: the name owns the screen, then hands over to the device.
       if (flat) tl.fromTo(device, { yPercent: 30, autoAlpha: 0 }, { yPercent: 0, autoAlpha: 1, duration: 0.85, ease: 'power3.out' }, 0.4)
@@ -171,17 +209,24 @@ export function DeviceStory(p: Props) {
         tl.fromTo(f, { autoAlpha: 0, scale: 0.8, z: 0 }, { autoAlpha: 1, scale: 1, z: 90, duration: 0.3, ease: 'power3.out', immediateRender: false }, i === 0 ? INTRO - 0.2 : at)
         tl.to(f, { autoAlpha: 0, z: 160, duration: 0.25, ease: 'power2.in' }, INTRO + i + 0.35)
       })
-      tl.to({}, { duration: 0.35 })
+      tl.call(() => {}, [], '+=0.35') // hold on the last screen
+      // Tap stops: the title, then each step once its screen, caption and
+      // float have all settled (floats leave at +0.35).
+      const unstop = registerStops(el, timelineStops(tl, [0, ...p.steps.map((_, i) => INTRO + i + 0.15)]))
       render(tl.time())
 
-      return () =>
+      return () => {
+        unstop()
+        document.removeEventListener('visibilitychange', onVisible)
+        window.removeEventListener('pageshow', heal)
+        device.style.removeProperty('will-change')
         screens.forEach((s, i) => {
           s.style.removeProperty('visibility')
-          s.style.removeProperty('content-visibility')
           s.style.removeProperty('transform')
           s.style.removeProperty('opacity')
           shades[i]?.style.removeProperty('opacity')
         })
+      }
     }, el)
     return () => ctx.revert()
   }, [reduced, desktop, p.steps])
@@ -256,7 +301,7 @@ export function DeviceStory(p: Props) {
                 style={kind === 'phone' ? { width: 'min(24rem, 78vw)', height: desktop ? '82svh' : tabletUp ? '60svh' : 'min(52svh, calc(100svh - 22rem))' } : { width: 'min(62vw, 1040px)', height: '78svh' }}
               >
                 {p.steps.map((s, i) => (
-                  <div key={s.label} data-screen className="absolute inset-0 overflow-hidden" style={{ zIndex: i, contain: 'strict' }}>
+                  <div key={s.label} data-screen className="absolute inset-0 overflow-hidden" style={{ zIndex: i, contain: 'layout paint' }}>
                     {s.screen}
                     {/* Dims the outgoing screen during a push (cheaper than a CSS filter). */}
                     <div data-shade aria-hidden className="pointer-events-none absolute inset-0 z-[100] bg-black opacity-0" />
