@@ -76,23 +76,66 @@ export function DeviceStory(p: Props) {
       // only rises and fades; screens still push and cross-fade.
       const flat = quality.coarse
 
-      gsap.set(screens.slice(1), { autoAlpha: 0 })
       gsap.set(texts.slice(1), { autoAlpha: 0, y: 30 })
       if (floats.length) gsap.set(floats, { autoAlpha: 0, scale: 0.85, z: 0 })
 
+      // Screens are not tweened. Their state is a pure function of the
+      // timeline's playhead, rewritten every update: scrolling up, down, fast
+      // or mid-transition always lands on exactly the right screen, with none
+      // of the stale start values a reversed chain of tweens can leave behind.
+      // Transforms stay 2D so screens never get their own GPU layers — on
+      // phones, layers promoted and dropped per transition exhausted GPU
+      // memory and a screen coming back on scroll-up stayed blank (white).
+      const shades = screens.map((s) => s.querySelector<HTMLElement>('[data-shade]'))
+      const starts = p.steps.map((_, i) => INTRO + i - 0.5)
+      const pushEase = gsap.parseEase('power3.inOut')
+      const tabEase = gsap.parseEase('power2.out')
+      const written: string[] = []
+      let activeLabel = -1
+
+      const paint = (i: number, key: string, vis: string, cv: string, transform: string, opacity: string, shade: string) => {
+        if (written[i] === key) return
+        written[i] = key
+        const st = screens[i].style
+        st.visibility = vis
+        st.contentVisibility = cv
+        st.transform = transform
+        st.opacity = opacity
+        if (shades[i]) shades[i]!.style.opacity = shade
+      }
+
+      const render = (t: number) => {
+        let a = 0
+        for (let i = 1; i < n; i++) if (t >= starts[i]) a = i
+        const push = (p.steps[a].transition ?? 'push') === 'push'
+        const q = a === 0 ? 1 : Math.min(1, (t - starts[a]) / (push ? 0.46 : 0.36))
+        const e = push ? pushEase(q) : tabEase(q)
+        for (let i = 0; i < n; i++) {
+          if (i === a && q >= 1) paint(i, 'on', 'visible', 'visible', 'none', '1', '0')
+          else if (i === a && push) paint(i, `in${e}`, 'visible', 'visible', `translate(${((1 - e) * 100).toFixed(3)}%,0)`, '1', '0')
+          else if (i === a) paint(i, `in${e}`, 'visible', 'visible', `translate(0,${((1 - e) * 2).toFixed(3)}%)`, e.toFixed(4), '0')
+          else if (i === a - 1 && q < 1)
+            paint(i, `out${e}`, 'visible', 'visible', push ? `translate(${(-28 * e).toFixed(3)}%,0)` : 'none', '1', push ? (0.2 * e).toFixed(4) : '0')
+          // Neighbours stay laid out (just not painted) so the next screen in
+          // either direction appears instantly; the rest skip rendering.
+          else paint(i, Math.abs(i - a) <= 1 ? 'near' : 'far', 'hidden', Math.abs(i - a) <= 1 ? 'visible' : 'hidden', 'none', '1', '0')
+        }
+        const idx = Math.max(0, Math.min(n - 1, Math.floor(t - INTRO + 0.5)))
+        if (idx !== activeLabel) {
+          activeLabel = idx
+          labels.forEach((l, i) => (l.dataset.active = i === idx ? '1' : i < idx ? 'past' : ''))
+          if (counter) counter.textContent = `${String(idx + 1).padStart(2, '0')} / ${String(n).padStart(2, '0')}`
+        }
+      }
+
       const tl = gsap.timeline({
         defaults: { ease: 'power2.inOut' },
+        onUpdate: () => render(tl.time()),
         scrollTrigger: {
           trigger: el,
           start: 'top top',
           end: 'bottom bottom',
           scrub: 0.9,
-          onUpdate(self) {
-            const time = self.progress * tl.duration()
-            const idx = Math.max(0, Math.min(n - 1, Math.floor(time - INTRO + 0.5)))
-            labels.forEach((l, i) => (l.dataset.active = i === idx ? '1' : i < idx ? 'past' : ''))
-            if (counter) counter.textContent = `${String(idx + 1).padStart(2, '0')} / ${String(n).padStart(2, '0')}`
-          },
         },
       })
 
@@ -111,24 +154,7 @@ export function DeviceStory(p: Props) {
       if (!flat) tl.fromTo(device, { '--glare': 0.15 }, { '--glare': 0.85, duration: n + INTRO, ease: 'none' }, 0)
 
       for (let i = 1; i < n; i++) {
-        const at = INTRO + i - 0.5
-        const push = (p.steps[i].transition ?? 'push') === 'push'
-        const prev = screens[i - 1]
-        const next = screens[i]
-        if (push) {
-          tl.fromTo(next, { autoAlpha: 1, xPercent: 100 }, { xPercent: 0, duration: 0.45, ease: 'power3.inOut', immediateRender: false }, at)
-          // Filters are animated from an explicit value: tweening from 'none'
-          // starts at brightness(0) and flashes the screen black. Touch
-          // devices skip the filter — it forces a costly re-raster per frame.
-          if (quality.coarse) tl.to(prev, { xPercent: -28, duration: 0.45, ease: 'power3.inOut' }, at)
-          else tl.fromTo(prev, { filter: 'brightness(1)' }, { xPercent: -28, filter: 'brightness(0.8)', duration: 0.45, ease: 'power3.inOut', immediateRender: false }, at)
-          tl.set(prev, { autoAlpha: 0 }, at + 0.46)
-        } else {
-          // The next screen fades in *over* the previous one, which only
-          // hides once covered — the empty screen behind never shows through.
-          tl.fromTo(next, { autoAlpha: 0, yPercent: 2 }, { autoAlpha: 1, yPercent: 0, duration: 0.35, ease: 'power2.out', immediateRender: false }, at)
-          tl.set(prev, { autoAlpha: 0 }, at + 0.36)
-        }
+        const at = starts[i]
         tl.to(texts[i - 1], { autoAlpha: 0, y: -24, duration: 0.25, ease: 'power2.in' }, at - 0.05)
         tl.fromTo(texts[i], { autoAlpha: 0, y: 30 }, { autoAlpha: 1, y: 0, duration: 0.35, ease: 'power3.out', immediateRender: false }, at + 0.2)
         const pose = POSES[i % POSES.length]
@@ -146,6 +172,16 @@ export function DeviceStory(p: Props) {
         tl.to(f, { autoAlpha: 0, z: 160, duration: 0.25, ease: 'power2.in' }, INTRO + i + 0.35)
       })
       tl.to({}, { duration: 0.35 })
+      render(tl.time())
+
+      return () =>
+        screens.forEach((s, i) => {
+          s.style.removeProperty('visibility')
+          s.style.removeProperty('content-visibility')
+          s.style.removeProperty('transform')
+          s.style.removeProperty('opacity')
+          shades[i]?.style.removeProperty('opacity')
+        })
     }, el)
     return () => ctx.revert()
   }, [reduced, desktop, p.steps])
@@ -220,8 +256,10 @@ export function DeviceStory(p: Props) {
                 style={kind === 'phone' ? { width: 'min(24rem, 78vw)', height: desktop ? '82svh' : tabletUp ? '60svh' : 'min(52svh, calc(100svh - 22rem))' } : { width: 'min(62vw, 1040px)', height: '78svh' }}
               >
                 {p.steps.map((s, i) => (
-                  <div key={s.label} data-screen className="absolute inset-0 overflow-hidden" style={{ zIndex: i }}>
+                  <div key={s.label} data-screen className="absolute inset-0 overflow-hidden" style={{ zIndex: i, contain: 'strict' }}>
                     {s.screen}
+                    {/* Dims the outgoing screen during a push (cheaper than a CSS filter). */}
+                    <div data-shade aria-hidden className="pointer-events-none absolute inset-0 z-[100] bg-black opacity-0" />
                   </div>
                 ))}
               </DeviceFrame>
