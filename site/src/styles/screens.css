@@ -56,3 +56,13 @@
     4px 6px 14px rgb(107 88 64 / 0.35),
     inset 0 1px 0 rgb(255 249 232 / 0.7);
 }
+
+/* .nv — Nuvara (Plus Jakarta Sans UI, Archivo headings; lib/theme.dart) */
+.nv {
+  font-family: 'Plus Jakarta Sans Variable', 'Plus Jakarta Sans', system-ui, sans-serif;
+  color: #0d0e2c;
+  -webkit-font-smoothing: antialiased;
+  text-align: left;
+  letter-spacing: 0;
+  container-type: inline-size;
+}

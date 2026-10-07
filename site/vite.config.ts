@@ -5,8 +5,8 @@ import { resolve } from 'node:path'
 
 const root = import.meta.dirname
 
-// Two static pages, two entry bundles. Cloudflare Pages serves
-// /palli/ from palli/index.html with no server code involved.
+// Static pages, one entry bundle each. Cloudflare Pages serves /palli/
+// and /nuvara/ from their index.html with no server code involved.
 export default defineConfig({
   plugins: [react(), tailwindcss()],
   build: {
@@ -17,6 +17,7 @@ export default defineConfig({
       input: {
         main: resolve(root, 'index.html'),
         palli: resolve(root, 'palli/index.html'),
+        nuvara: resolve(root, 'nuvara/index.html'),
       },
     },
   },

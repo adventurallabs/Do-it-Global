@@ -181,6 +181,14 @@ html.lenis body {
   display: inline-block;
 }
 
+/* Nuvara: warm white into the mark's orange, ending on its sky-blue dots. */
+.text-gradient-nuvara {
+  background: linear-gradient(100deg, #fff4ee 0%, #ffb594 38%, #ea501e 72%, #36a9e0 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
 .text-gradient-violet {
   background: linear-gradient(100deg, #efe7ff 0%, #b79bff 45%, #8149c1 100%);
   -webkit-background-clip: text;
@@ -264,6 +272,9 @@ html.lenis body {
   animation: rim 8s linear infinite;
   opacity: 0.75;
   transition: opacity 0.8s;
+}
+.portal-rim-nuvara {
+  background: conic-gradient(from var(--rim), transparent 0 58%, rgb(234 80 30 / 0.85) 72%, rgb(255 154 110 / 0.6) 80%, rgb(54 169 224 / 0.55) 86%, transparent 94%);
 }
 .portal:hover .portal-rim {
   opacity: 1;

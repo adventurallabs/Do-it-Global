@@ -10,29 +10,29 @@ import { quality, scaleCount } from '../../lib/quality'
 import { blendColor, blendNumber, blendVec3, sectionWeights } from '../../lib/blend'
 import { damp, remap } from '../../lib/math'
 
-const IDS = ['hero', 'build', 'product', 'philosophy', 'vision'] as const
+const IDS = ['hero', 'build', 'product', 'nuvara', 'philosophy', 'vision'] as const
 type V3 = [number, number, number]
 const C = (hex: string) => new THREE.Color(hex)
 
 /** One look per chapter. The director blends them by on-screen share. */
 const STAGES = {
-  cam: [[0, 0, 11], [0, 0.25, 10.8], [0, 0, 12.6], [0, 0, 11.2], [0, 0.2, 10]] as V3[],
-  obj: [[0, 0, 0], [3.1, -0.1, 0], [0, 0, 0], [2.7, 0, 0], [0, -0.1, 0]] as V3[],
-  objMobile: [[0, 0.95, 0], [0, 1.35, 0], [0, 0.1, 0], [0, 1.5, 0], [0, 0.3, 0]] as V3[],
-  scale: [1, 0.95, 0.84, 0.92, 1.12],
-  scaleMobile: [0.78, 0.66, 0.6, 0.62, 0.78],
-  noise: [1, 0.35, 0.25, 0.4, 0.5],
-  pointer: [1, 0.6, 0.25, 0.6, 0.8],
-  opacity: [0.95, 0.9, 0.85, 0.8, 0.9],
-  orbits: [1, 0.2, 0, 0.3, 0.9],
-  colA: [C('#edeae3'), C('#edeae3'), C('#d9c8ff'), C('#edeae3'), C('#e2ebff')],
-  colB: [C('#9aa7ff'), C('#7fb6ff'), C('#8b52d1'), C('#b79bff'), C('#6f8bff')],
-  dust: [C('#c9ccf5'), C('#b8d2ff'), C('#cdb8ff'), C('#d6d2ff'), C('#b8caff')],
-  bgA: [C('#221843'), C('#0f2140'), C('#3a1b66'), C('#1c173a'), C('#13264b')],
-  bgB: [C('#0c1a31'), C('#191331'), C('#10173a'), C('#0a1929'), C('#2a1a4a')],
-  bgPosA: [[0.74, 0.64], [0.78, 0.5], [0.5, 0.5], [0.8, 0.45], [0.5, 0.36]] as [number, number][],
-  bgPosB: [[0.16, 0.22], [0.2, 0.82], [0.2, 0.18], [0.15, 0.2], [0.5, 0.92]] as [number, number][],
-  bgIntensity: [1, 0.9, 1.25, 0.85, 1],
+  cam: [[0, 0, 11], [0, 0.25, 10.8], [0, 0, 12.6], [0, 0, 12.6], [0, 0, 11.2], [0, 0.2, 10]] as V3[],
+  obj: [[0, 0, 0], [3.1, -0.1, 0], [0, 0, 0], [0, 0, 0], [2.7, 0, 0], [0, -0.1, 0]] as V3[],
+  objMobile: [[0, 0.95, 0], [0, 1.35, 0], [0, 0.1, 0], [0, 0.1, 0], [0, 1.5, 0], [0, 0.3, 0]] as V3[],
+  scale: [1, 0.95, 0.84, 0.84, 0.92, 1.12],
+  scaleMobile: [0.78, 0.66, 0.6, 0.6, 0.62, 0.78],
+  noise: [1, 0.35, 0.25, 0.25, 0.4, 0.5],
+  pointer: [1, 0.6, 0.25, 0.25, 0.6, 0.8],
+  opacity: [0.95, 0.9, 0.85, 0.85, 0.8, 0.9],
+  orbits: [1, 0.2, 0, 0, 0.3, 0.9],
+  colA: [C('#edeae3'), C('#edeae3'), C('#d9c8ff'), C('#ffe2d4'), C('#edeae3'), C('#e2ebff')],
+  colB: [C('#9aa7ff'), C('#7fb6ff'), C('#8b52d1'), C('#ea501e'), C('#b79bff'), C('#6f8bff')],
+  dust: [C('#c9ccf5'), C('#b8d2ff'), C('#cdb8ff'), C('#ffc6ad'), C('#d6d2ff'), C('#b8caff')],
+  bgA: [C('#221843'), C('#0f2140'), C('#3a1b66'), C('#3d1607'), C('#1c173a'), C('#13264b')],
+  bgB: [C('#0c1a31'), C('#191331'), C('#10173a'), C('#121a52'), C('#0a1929'), C('#2a1a4a')],
+  bgPosA: [[0.74, 0.64], [0.78, 0.5], [0.5, 0.5], [0.5, 0.5], [0.8, 0.45], [0.5, 0.36]] as [number, number][],
+  bgPosB: [[0.16, 0.22], [0.2, 0.82], [0.2, 0.18], [0.8, 0.82], [0.15, 0.2], [0.5, 0.92]] as [number, number][],
+  bgIntensity: [1, 0.9, 1.25, 1.2, 0.85, 1],
 }
 
 const BG_AX = STAGES.bgPosA.map((p) => p[0])

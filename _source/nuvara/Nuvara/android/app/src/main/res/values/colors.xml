@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Nuvara navy (C.brand900); the in-app splash starts on the same colour, so the hand-off is seamless. -->
+    <color name="splash_background">#010039</color>
+</resources>

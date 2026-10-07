@@ -5,7 +5,7 @@ import { useReducedMotion } from '../hooks/useReducedMotion'
 
 type Props = AnchorHTMLAttributes<HTMLAnchorElement> & {
   children: ReactNode
-  variant?: 'solid' | 'ghost' | 'violet'
+  variant?: 'solid' | 'ghost' | 'violet' | 'orange'
   strength?: number
 }
 
@@ -14,6 +14,9 @@ const styles = {
   ghost: 'border border-line text-bone hover:border-bone/40 bg-white/[0.02]',
   violet:
     'text-white bg-[linear-gradient(135deg,#9a63dd,#7440b8_55%,#5a2896)] shadow-[0_18px_50px_-18px_rgba(129,73,193,0.8),inset_0_1px_0_rgba(255,255,255,0.25)]',
+  // Nuvara: the mark's orange, deepened to clay600 so white text stays readable.
+  orange:
+    'text-white bg-[linear-gradient(135deg,#f0703f,#d9481a_55%,#b8380f)] shadow-[0_18px_50px_-18px_rgba(234,80,30,0.8),inset_0_1px_0_rgba(255,255,255,0.25)]',
 }
 
 /** A link that leans toward the pointer. A plain link on touch / reduced motion. */

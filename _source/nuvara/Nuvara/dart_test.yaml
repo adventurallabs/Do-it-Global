@@ -1,0 +1,3 @@
+tags:
+  live:
+    # Talks to the real Supabase project; run with: flutter test --tags live

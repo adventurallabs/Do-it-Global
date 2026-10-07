@@ -13,7 +13,7 @@ export function Vision() {
     <div ref={ref}>
       <section id="vision" className="relative flex min-h-[130svh] items-center">
         <div className="mx-auto w-full max-w-[1600px] px-5 text-center sm:px-8 md:px-12">
-          <SectionLabel index="04" className="justify-center">
+          <SectionLabel index="05" className="justify-center">
             {VISION.label}
           </SectionLabel>
           <RevealText text={VISION.statement} className="t-h1 mx-auto mt-10 max-w-[18ch] text-bone" stagger={0.04} />
@@ -44,6 +44,10 @@ function Footer() {
                 Explore Palli
                 <Arrow diagonal />
               </MagneticButton>
+              <MagneticButton href={SITE.nuvaraPath} target="_blank" rel="noopener" variant="ghost">
+                Explore Nuvara
+                <Arrow diagonal />
+              </MagneticButton>
             </div>
           </div>
 
@@ -63,6 +67,9 @@ function Footer() {
               <a href={`${SITE.palliPath}#core`} target="_blank" rel="noopener">
                 PalliCore
               </a>
+              <a href={SITE.nuvaraPath} target="_blank" rel="noopener">
+                Nuvara ↗
+              </a>
             </FooterCol>
             <FooterCol title="Elsewhere">
               {SITE.social.map((s) => (
@@ -80,7 +87,7 @@ function Footer() {
             <span className="text-[0.95rem] font-medium tracking-[-0.01em]">{SITE.company}</span>
           </div>
           <p className="text-[0.8rem] text-mute">
-            © {SITE.year} {SITE.company}. Palli, PalliConnect and PalliCore are products of {SITE.shortName}.
+            © {SITE.year} {SITE.company}. Palli, PalliConnect, PalliCore and Nuvara are products of {SITE.shortName}.
           </p>
         </div>
       </div>

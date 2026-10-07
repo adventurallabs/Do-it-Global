@@ -11,6 +11,7 @@ export const SITE = {
   location: 'Headquarters — city, country',
   year: 2026,
   palliPath: '/palli/',
+  nuvaraPath: '/nuvara/',
   social: [
     { label: 'LinkedIn', href: '#' },
     { label: 'X', href: '#' },
