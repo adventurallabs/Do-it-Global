@@ -1,0 +1,9 @@
+{
+  "name": "do-it-global",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": "./dist"
+  },
+  // Required by `wrangler preview` (used for non-production branch builds).
+  "previews": {}
+}
