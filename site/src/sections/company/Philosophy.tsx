@@ -48,7 +48,7 @@ export function Philosophy() {
     return (
       <section ref={setRefs} id="philosophy" className="relative px-5 py-40 sm:px-8 md:px-12">
         <div className="mx-auto max-w-[1600px]">
-          <SectionLabel index="03">How we build</SectionLabel>
+          <SectionLabel index="04">How we build</SectionLabel>
           <div className="mt-16 space-y-20">
             {PRINCIPLES.map((p) => (
               <div key={p.title}>
@@ -66,7 +66,7 @@ export function Philosophy() {
     <section ref={setRefs} id="philosophy" className="relative h-[380svh]">
       <div className="sticky-stage">
         <div className="mx-auto flex h-full max-w-[1600px] flex-col justify-center px-5 sm:px-8 md:px-12">
-          <SectionLabel index="03" className="absolute top-24 md:top-28">
+          <SectionLabel index="04" className="absolute top-24 md:top-28">
             How we build
           </SectionLabel>
 

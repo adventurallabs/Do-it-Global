@@ -10,6 +10,7 @@ import { ProductPortal } from '../sections/company/ProductPortal'
 import { Philosophy } from '../sections/company/Philosophy'
 import { Vision } from '../sections/company/Vision'
 import { SITE } from '../data/site'
+import { NUVARA, PRODUCT } from '../data/company'
 
 // WebGL arrives after the first paint; the page is complete without it.
 const SceneCanvas = lazy(() => import('../components/SceneCanvas'))
@@ -45,6 +46,7 @@ export function CompanyPage() {
         links={[
           { label: 'What we build', href: '#build' },
           { label: 'Palli', href: '#product' },
+          { label: 'Nuvara', href: '#nuvara' },
           { label: 'How we build', href: '#philosophy' },
           { label: 'Contact', href: '#contact' },
         ]}
@@ -58,7 +60,8 @@ export function CompanyPage() {
       <main className="relative z-10">
         <Hero />
         <WhatWeBuild />
-        <ProductPortal />
+        <ProductPortal product={PRODUCT} />
+        <ProductPortal product={NUVARA} />
         <Philosophy />
         <Vision />
       </main>

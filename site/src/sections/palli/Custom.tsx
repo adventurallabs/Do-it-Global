@@ -19,7 +19,7 @@ const brandPhone = { width: 'min(19rem, 46vw)', height: 'min(62svh, 38rem, 105vw
  * never exposes an empty (white) screen, even while a phone is still
  * rasterising the new one.
  */
-function Crossfade({ index, items }: { index: number; items: ReactNode[] }) {
+export function Crossfade({ index, items }: { index: number; items: ReactNode[] }) {
   const [prev, setPrev] = useState(index)
   const last = useRef(index)
   useEffect(() => {

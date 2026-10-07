@@ -7,13 +7,14 @@ import { snoise } from '../common/glsl'
 
 export type CoreUniforms = ReturnType<typeof makeCoreUniforms>
 
-export function makeCoreUniforms() {
+/** Palli's violet by default; other products pass their own palette. */
+export function makeCoreUniforms(c: { rim: string; deep: string; mid: string } = { rim: '#c8a6ff', deep: '#1a0b33', mid: '#6a33b8' }) {
   return {
     uTime: { value: 0 },
     uGlow: { value: 1 },
-    uRim: { value: new THREE.Color('#c8a6ff') },
-    uDeep: { value: new THREE.Color('#1a0b33') },
-    uMid: { value: new THREE.Color('#6a33b8') },
+    uRim: { value: new THREE.Color(c.rim) },
+    uDeep: { value: new THREE.Color(c.deep) },
+    uMid: { value: new THREE.Color(c.mid) },
   }
 }
 
@@ -37,11 +38,21 @@ export function useGlowTexture() {
 }
 
 /**
- * The heart of the page: a violet body with a living interior, a bright
- * Fresnel rim, a halo, and the real Palli mark floating in front of it.
+ * The heart of the page: a body with a living interior, a bright Fresnel
+ * rim, a halo, and the product's real mark floating in front of it.
  */
-export const EcosystemCore = forwardRef<THREE.Group, { uniforms: CoreUniforms; markOpacity: { current: number } }>(function EcosystemCore({ uniforms, markOpacity }, ref) {
-  const mark = useTexture('/brand/palli-mark.webp')
+type CoreProps = {
+  uniforms: CoreUniforms
+  markOpacity: { current: number }
+  /** The product mark floating in front of the core (Palli's by default). */
+  mark?: string
+  /** Its plane size, matching the image's aspect. */
+  markSize?: [number, number]
+  halo?: string
+}
+
+export const EcosystemCore = forwardRef<THREE.Group, CoreProps>(function EcosystemCore({ uniforms, markOpacity, mark: markUrl = '/brand/palli-mark.webp', markSize = [1.12, 1.15], halo = '#7d45d0' }, ref) {
+  const mark = useTexture(markUrl)
   mark.colorSpace = THREE.SRGBColorSpace
   const glow = useGlowTexture()
 
@@ -80,24 +91,24 @@ export const EcosystemCore = forwardRef<THREE.Group, { uniforms: CoreUniforms; m
   return (
     <group ref={ref}>
       <sprite scale={[7.5, 7.5, 1]} renderOrder={-1}>
-        <spriteMaterial map={glow} color="#7d45d0" transparent opacity={0.55} depthWrite={false} blending={THREE.AdditiveBlending} />
+        <spriteMaterial map={glow} color={halo} transparent opacity={0.55} depthWrite={false} blending={THREE.AdditiveBlending} />
       </sprite>
       <mesh material={coreMat}>
         <sphereGeometry args={[1.15, 96, 96]} />
       </mesh>
-      <MarkPlane map={mark} opacity={markOpacity} />
+      <MarkPlane map={mark} opacity={markOpacity} size={markSize} />
     </group>
   )
 })
 
-function MarkPlane({ map, opacity }: { map: THREE.Texture; opacity: { current: number } }) {
+function MarkPlane({ map, opacity, size }: { map: THREE.Texture; opacity: { current: number }; size: [number, number] }) {
   const mat = useMemo(() => new THREE.MeshBasicMaterial({ map, transparent: true, depthWrite: false, opacity: 1 }), [map])
   useFrame(() => {
     mat.opacity = opacity.current
   })
   return (
     <mesh position={[0, 0.02, 1.2]} material={mat} name="palli-mark">
-      <planeGeometry args={[1.12, 1.15]} />
+      <planeGeometry args={size} />
     </mesh>
   )
 }

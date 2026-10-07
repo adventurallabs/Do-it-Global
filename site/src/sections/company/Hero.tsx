@@ -33,7 +33,7 @@ export function Hero() {
         <div className="mb-6 flex items-end justify-between gap-8 md:mb-10">
           <p data-hero-fade className="t-label">Technologies</p>
           <p data-hero-fade className="t-label hidden md:block">
-            Product company · Makers of Palli
+            Product company · Makers of Palli &amp; Nuvara
           </p>
         </div>
 

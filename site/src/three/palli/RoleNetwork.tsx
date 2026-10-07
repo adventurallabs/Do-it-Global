@@ -21,20 +21,27 @@ const PAIRS: [number, number][] = [
   [0, 3],
 ]
 
+export type Role = { id: string; label: string; app: string; color: string }
+
 type Props = {
   /** Mutable world positions, one per role, written by the scene each frame. */
   positions: THREE.Vector3[]
   opacity: { current: number }
   labels: { current: number }
+  /** The four roles (a school's by default) and who exchanges light with whom. */
+  roles?: readonly Role[]
+  pairs?: [number, number][]
+  /** Colour the light passes through at the core. */
+  via?: string
 }
 
-/** The four roles of a school as nodes, with the traffic between them. */
-export function RoleNetwork({ positions, opacity, labels }: Props) {
+/** The four roles as nodes, with the traffic between them. */
+export function RoleNetwork({ positions, opacity, labels, roles = ROLES, pairs = PAIRS, via = '#b79bff' }: Props) {
   const glow = useGlowTexture()
   const nodes = useRef<(THREE.Group | null)[]>([])
   const labelEls = useRef<(HTMLDivElement | null)[]>([])
   const sprites = useRef<(THREE.SpriteMaterial | null)[]>([])
-  const flows = useMemo(() => PAIRS.map(([a, b]) => makeFlowUniforms(ROLES[a].color, '#b79bff', ROLES[b].color)), [])
+  const flows = useMemo(() => pairs.map(([a, b]) => makeFlowUniforms(roles[a].color, via, roles[b].color)), [roles, pairs, via])
   const count = scaleCount(420)
 
   useFrame((s) => {
@@ -51,7 +58,7 @@ export function RoleNetwork({ positions, opacity, labels }: Props) {
       if (el) el.style.opacity = String(labels.current * o)
     })
     flows.forEach((u, i) => {
-      const [a, b] = PAIRS[i]
+      const [a, b] = pairs[i]
       u.uA.value.copy(positions[a])
       u.uB.value.copy(positions[b])
       u.uTime.value = s.clock.elapsedTime
@@ -62,7 +69,7 @@ export function RoleNetwork({ positions, opacity, labels }: Props) {
 
   return (
     <group>
-      {ROLES.map((r, i) => (
+      {roles.map((r, i) => (
         <group key={r.id} ref={(g) => void (nodes.current[i] = g)}>
           <sprite scale={[1.3, 1.3, 1]}>
             <spriteMaterial ref={(m) => void (sprites.current[i] = m)} map={glow} color={r.color} transparent depthWrite={false} blending={THREE.AdditiveBlending} />
